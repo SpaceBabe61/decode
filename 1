@@ -1,0 +1,14 @@
+def decipherMessage():
+ passcode = input('Enter password:') 
+ if passcode == "LopesUp":
+  encodedImg = makePicture(pickAFile())
+  hiddenMsg = makeEmptyPicture(getWidth(encodedImg),getHeight(encodedImg))
+  for x in range(0,getWifth(encodedImg)):
+   for y in range(0,getHeight(encodedImg)):
+    encPxl = getPixel(encodedImg,x,y)
+    msgPxl = getPixel(hiddenMsg,x,y)
+    if (getRed(encPxl % 2)) == 1:
+     setColor(msgPxl,black)
+  print "Message is Decoded Successfully"
+  show(hiddenMsg)
+ 
